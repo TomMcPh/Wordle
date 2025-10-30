@@ -38,28 +38,28 @@ def process_clues(guess, answer):
     global inword, correctspot, removedletters, notinposition
     
     answer_counts = Counter(answer)
-    guess_clues = ['_'] * 5  # 'G' (Green), 'Y' (Yellow), 'B' (Gray)
+    guess_clues = ['_'] * 5
     
     # 1. Green Pass: Find all correct letters in the correct spot
     for i in range(5):
         if guess[i] == answer[i]:
             guess_clues[i] = 'G'
-            correctspot[i] = guess[i] # Update global state
+            correctspot[i] = guess[i]
             answer_counts[guess[i]] -= 1
             
     # 2. Yellow/Gray Pass: Find yellows and grays
     for i in range(5):
-        if guess_clues[i] == '_':  # Only check if not already green
+        if guess_clues[i] == '_':
             char = guess[i]
             if answer_counts[char] > 0:
                 guess_clues[i] = 'Y'
-                notinposition[i].add(char) # Add to "not in this position" set
+                notinposition[i].add(char)
                 answer_counts[char] -= 1
             else:
                 guess_clues[i] = 'B'
                 
     # 3. Update global knowledge from the clues
-    current_guess_counts = Counter() # Count greens + yellows in this guess
+    current_guess_counts = Counter()
     for i in range(5):
         char = guess[i]
         if guess_clues[i] == 'G' or guess_clues[i] == 'Y':
@@ -173,7 +173,7 @@ def solve(answer):
     
     guesses = []
     
-    for guess_num in range(1, 7): # 6 guesses allowed
+    for guess_num in range(1, 7): 
         
         # 1. Choose a guess
         if guess_num == 1:
@@ -198,13 +198,13 @@ def solve(answer):
             elif guess_num == 6: sixthcorrect += 1
             return
         
-        # 3. Process the clues from the guess (The *new* way)
+        # 3. Process the clues from the guess
         process_clues(guess, answer)
         
-        # 4. Filter the word list (The *new* way)
+        # 4. Filter the word list
         filterguesses()
         
-        # 5. Remove the guess itself (if it wasn't the answer)
+        # 5. Remove the guess itself 
         if guess in remainingwords:
             remainingwords.remove(guess)
             
