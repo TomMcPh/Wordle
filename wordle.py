@@ -182,7 +182,7 @@ def solve(answer):
         elif guess_num == 4 and correctspot == [' ', 'a', 't', 'c', 'h']:
             guess = "clamp"
         elif guess_num == 4 and correctspot == [' ', 'o', ' ', 'e', 'r']:
-            guess = "milkva"
+            guess = "milky"
         elif guess_num == 3 and correctspot == [' ', 'o', 'u', 'n', 'd']:
             guess = "blimp"
         elif guess_num == 4 and correctspot == [' ', 'a', 's', 't', 'e']:
