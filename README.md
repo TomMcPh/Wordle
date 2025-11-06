@@ -23,7 +23,7 @@ The structure of this solver was quite straight forward, guesses were filtered v
 
 **Issues**<br>
 At the end of my initial implementation I was stuck with 10 words that could not be completed. This was due to patterns in the words that had too many combinations of answers. For example, vaunt, taunt, haunt, jaunt. In order to combat these guesses, 
-I used conditional checks on certain guesses to guess a word that would remove possible combinations, for 'aunt' ending words, I used the word "dight" to remove as many possible combinations of the first letter as possible. I ran a script on remaining words that had this issue to resolve all Wordle traps.
+I used conditional checks on certain guesses to guess a word that would remove possible combinations, for 'aunt' ending words, I used the word "dight" to remove as many possible combinations of the first letter as possible. I ran a script on remaining words that had this issue to find a valid guess with the most amount of those characters to resolve all Wordle traps.
 <br>
 
 **Future modifications**<br>
